@@ -1,0 +1,12 @@
+#include <debug.au3>
+Run('calc.exe');запуск калькулятора
+$hWnd=WinWait("Калькулятор")
+WinActivate($hWnd)
+Send('2{+}2{enter}')
+WinActivate($hWnd)
+Send("^C")
+Local $var=ClipGet()
+ConsoleWrite($var)
+ConsoleWrite(_Assert('$var=4'));тест на результат
+Sleep(1000)
+WinClose("Калькулятор")

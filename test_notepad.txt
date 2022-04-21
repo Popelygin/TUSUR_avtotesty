@@ -1,0 +1,21 @@
+Run("notepad.exe")
+$hWnd=WinWait("Безымянный – Блокнот")
+WinActivate($hWnd)
+Sleep(1300)
+Local $Pos=WinGetPos($hWnd)
+WinMove($hWnd,"",100,100,500,500)
+
+
+Send("Привет, мир!!!")
+
+WinActivate("*Безымянный – Блокнот")
+WinClose("*Безымянный – Блокнот")
+Sleep(800)
+WinWait("Блокнот","")
+ControlClick("Блокнот","","Button1")
+
+WinWait("Сохранение","")
+ControlClick("Сохранение","","Edit1")
+Sleep(500)
+ControlSetText("Сохранение","*.txt","[CLASS:Edit; INSTANCE:1]","test.txt")
+ControlClick("Сохранение","","Button2")
